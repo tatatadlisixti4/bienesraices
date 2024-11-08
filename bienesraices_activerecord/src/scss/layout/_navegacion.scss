@@ -1,0 +1,95 @@
+.derecha {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        filter: invert(100%); // Pasar de negro a blanco
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+
+    }
+}
+
+
+.navegacion {
+    //display: none; // se reemplaza por lo de abajo pq no se puede animar un display
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s ease-in-out, opacity .5s linear, height .5s linear;
+
+    @include tablet {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+    }
+
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+
+        @include tablet {
+            margin-right: 2rem;
+            &:last-of-type{
+                margin-right: 0;  
+            }  // Todo esto se puede reemplazar con un gap: 2rem en el mq tablet de arriba dps del display-flex
+
+        }
+    }
+}
+
+/** Menu de hamburguesa **/
+.mobile-menu {
+    @include tablet{
+        display: none;
+    }
+    
+    img {
+        width: 5rem;
+    }
+}
+
+.mostrar {
+    /*
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+        flex-direction: row;
+    } */ // Se reemplaza por lo de abajo pq no se puede animar un display
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    
+}
